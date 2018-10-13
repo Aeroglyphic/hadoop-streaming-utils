@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>uk.bl.wa.hadoop</groupId>
+  <artifactId>hadoop-streaming-utils</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Hadoop Streaming Uitls</name>
+  <description>Helpers for running Hadoop streaming jobs</description>
+   <properties>
+      <jdk.version>1.7</jdk.version>
+      <hadoop.version>0.20.2</hadoop.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <ram>1024</ram>
+      <slf4j.version.override>1.5.11</slf4j.version.override> <!-- last version compatible with ancient Hadoop -->
+   </properties>
+  <dependencies>
+      <dependency>
+         <groupId>org.apache.hadoop</groupId>
+         <artifactId>hadoop-core</artifactId>
+         <version>${hadoop.version}</version>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.hadoop</groupId>
+         <artifactId>hadoop-test</artifactId>
+         <version>${hadoop.version}</version>
+         <scope>test</scope>
+         <exclusions>
+            <exclusion>
+               <artifactId>slf4j-api</artifactId>
+               <groupId>org.slf4j</groupId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.mrunit</groupId>
+        <artifactId>mrunit</artifactId>
+        <version>0.9.0-incubating</version>
+        <classifier>hadoop1</classifier>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.10</version>
+         <scope>test</scope>
+      </dependency>
+  </dependencies>
+</project>
